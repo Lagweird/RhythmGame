@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rhythm</title>
+    <script>window.onerror = function(e){alert(e);};</script>
+    <script src="https://cdn.jsdelivr.net/npm/vexflow@4.2.2/build/cjs/vexflow.js"></script>
+    <script src="https://unpkg.com/web-audio-daw"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<!-- http://tinyurl.com/rhythmgen -->
+<body>
+    <div id="set">
+        <button onclick="go(f.value, t.value); listen(); this.blur();">Go!</button><button onclick="stopL();">Stop</button><br>
+        <button onclick="if(this.innerHTML.includes('+')){this.parentElement.style.height = metr.style.height = this.parentElement.scrollHeight + 'px'; this.innerHTML = this.innerHTML.replace('+', '-');}else{this.parentElement.style.height = metr.style.height = '44px'; this.innerHTML = this.innerHTML.replace('-', '+');}" id="col">Options +</button><br>
+        <label for="future">Visible Measures:</label>
+        <input type="number" value="2" min="1" id="future"><br>
+        <label for="tempo" title="Set this to 0 to wait for click">Tempo (bpm):</label>
+        <input type="number" value="120" min="0" id="tempo"><br>
+        <label for="sub">Subdivisions:</label>
+        <input type="number" value="8" min="1" max="128" id="sub"><br>
+        <label for="rests">Rests:</label>
+        <input type="checkbox" id="rests"><br>
+        <label for="dots">Dotted Notes:</label>
+        <input type="checkbox" id="dots"><br>
+        <label for="tup">Tuplets:</label>
+        <input type="checkbox" id="tup"><br>
+        <label for="pl">Playback:</label>
+        <input type="checkbox" id="pl"><br>
+        <label for="ms">Metronome Sound:</label>
+        <input type="checkbox" id="ms" checked><br>
+        <label for="dif" title="Sets strict limits on how precise you have to be.&#10; (Use on 32nd+ notes to not look like a cheater)">Strict Mode:</label>
+        <input type="checkbox" id="dif"><br>
+        <button id="dark" onclick="localStorage.setItem('darkTheme', localStorage.getItem('darkTheme') == 'dark' ? 'light' : 'dark'); darkC();" style="width: 100%;">Dark Theme</button><br>
+        <button onclick="suond.play();" style="width: 100%;">Play Music</button><!--<br>
+        <button onclick="o.innerText = document.querySelector('svg').innerHTML;"></button>-->
+    </div>
+    <div id="met"></div>
+    <p id="score"></p>
+    <!--<p>Use <kbd>F</kbd> and <kbd>J</kbd> to drum</p>-->
+    <div id="output"></div>
+    <p id="o"></p>
+    <script src="rhythm.js"></script>
+    <script src="input.js"></script>
+    <script>
+        const darkTh = document.createElement('style');
+        const darkB = document.getElementById('dark');
+        darkTh.innerHTML = 'html{background-color: #222; color: #fff;} #set input{background-color: #555; border: 1px solid #222; color: #fff;} #set input[type=\'checkbox\']{background-color: #555;} #set input[type=\'checkbox\']:checked{background-color: #579;} button{background-color: #555; border-radius: 11px; border: 1px solid #222; padding: 0px 8px; color: #7bf;} button:hover{background-color: #567;} svg{fill: #eee; stroke: #eee;}';
+        function darkC(){
+            if(localStorage.getItem('darkTheme') == 'dark'){
+                document.head.appendChild(darkTh);
+            }else if(document.head.contains(darkTh)){
+                document.head.removeChild(darkTh);
+            }
+        }
+        darkC();
+    </script>
+</body>
+</html>
