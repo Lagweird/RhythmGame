@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rhythm</title>
+    <link rel="stylesheet" href="old.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto Music">
+</head>
+<body>
+    <div id="set">
+        <label for="m">Measures:</label>
+        <input type="number" id="m" value="1"><br>
+        <label for="s">Subdivisions:</label>
+        <input type="number" id="s" value="8" min="1" max="128" title="Limit 128 (sometimes)"><br>
+        <button onclick="go();">Go!</button>
+    </div>
+    <button id="help" onclick="alert('If you are seeing this, you probably set the numbers too high\nTry re-pressing &quot;Go!&quot; before reading the rest of this\n\nSetting them lower and re-pressing &quot;Go!&quot; should fix it');">Help</button>
+    <div id="disp"></div>
+    <script src="old.js"></script>
+</body>
+</html>
