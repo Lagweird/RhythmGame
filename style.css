@@ -1,0 +1,141 @@
+html{
+    background-color: #fff;
+    width: 100vw;
+    height: 100vh;
+}
+body{
+    width: 100%;
+    height: calc(100%+0px);
+    margin: 0;
+    overflow-x: hidden;
+}
+button{
+    background-color: #eee;
+    border-radius: 11px;
+    border: 1px solid #fff;
+    padding: 0px 8px;
+    color: #08f;
+}
+button:hover{
+    background-color: #def;
+}
+#set{
+    margin: 8px;
+    text-align: right;
+    width: 180px;
+    height: 44px;
+    overflow: clip;
+    transition: height 0.2s;
+}
+#set input{
+    width: 42px;
+    background-color: #eee;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+/*checkboxes are ugly*/
+#set input[type='checkbox']{
+    appearance: none;
+    cursor: pointer;
+    background-color: #eee;
+    width: 42px;
+    height: 22px;
+    margin: 0;
+    padding: 0px;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+#set input[type='checkbox']::after{
+    content: '\2715';/*âœ•*/
+}
+#set input[type='checkbox']:checked{
+    background-color: #bdf;
+}
+#set input[type='checkbox']:checked::after{
+    content: '\2713';/*âœ“*/
+}
+/*checkboxes are better*/
+#set button{
+    width: 50%;
+    display: inline-block;
+    height: 22px;
+}
+#set #col{
+    width: 100%;
+    text-align: justify;
+    text-align-last: justify;
+}
+@keyframes c{
+    from {background-color: #427ff2;}
+    to {background-color: #f99843;}
+}
+#met{
+    background-color: black;
+    position: fixed;
+    top: 8px;
+    left: 195px;
+    height: 44px;
+    border-radius: 4px;
+    width: calc(100% - 201px);
+    opacity: 0;
+    filter: blur(4px);
+    transition: height 0.2s;
+    animation: c 2s linear infinite alternate;
+}
+#o{
+    position: fixed;
+    bottom: 0;
+    margin: 8px;
+    z-index: -1;
+}
+#score{
+    margin: 8px;
+}
+#score::before{
+    content: 'Score: ';
+}
+@keyframes up{
+    from{top: 0px;}
+    to{top: -105px;}
+}
+#output{
+    z-index: -2;
+    position: relative;
+    top: 0px;
+}
+@keyframes p{
+    0% {fill: #f00; stroke: #f0f;}
+    20% {fill: #ff0; stroke: #00f;}
+    40% {fill: #0f0; stroke: #0ff;}
+    60% {fill: #0ff; stroke: #0f0;}
+    80% {fill: #00f; stroke: #ff0;}
+    100% {fill: #f0f; stroke: #f00;}
+}
+svg{
+    fill: black;
+    stroke: black;
+    transform-origin: 0 0;
+    width: calc(infinity * 1px);
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+.r svg{
+    animation: p 1s linear infinite;
+}
+kbd{
+  background-color: #eee;
+  border-radius: 3px;
+  border: 1px solid #b4b4b4;
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.2),
+    0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+  color: #333;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: 700;
+  line-height: 1;
+  padding: 2px 4px;
+  text-decoration: underline;
+  white-space: nowrap;
+}
