@@ -1,0 +1,31 @@
+html{
+    background-color: #fff;
+    width: 100vw;
+    height: 100vh;
+}
+body{
+    width: 100%;
+    height: calc(100%+0px);
+    margin: 0;
+}
+#set{
+    text-align: right;
+    width: 150px;
+}
+#set input{
+    width: 32px;
+}
+#set button{
+    width: 100%;
+}
+#disp{
+    text-align: center;
+    width: 100%;
+    font-family: "Noto Music";
+    font-size: 32px;
+}
+#help{
+    position: fixed;
+    top: 8px;
+    right: 8px;
+}
